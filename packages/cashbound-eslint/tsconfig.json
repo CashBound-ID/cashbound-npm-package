@@ -1,0 +1,22 @@
+{
+  "extends": "@cashbound-id/tsconfig",
+  "compilerOptions": {
+    "emitDeclarationOnly": false,
+    "declaration": false,
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["./src"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "swc.config.js",
+    "eslint.config.mjs",
+    "eslint.pre-commit.config.mjs",
+    "index.d.ts",
+    "index.js",
+    "rollup.config.mjs"
+  ]
+}

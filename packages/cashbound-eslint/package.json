@@ -6,9 +6,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "@cashbound-id/tsconfig": "^1.0.0"
+    "@cashbound-id/tsconfig": "1.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.8.2",
+    "typescript-transform-paths": "^3.5.5"
+  },
+  "peerDependencies": {
+    "@cashbound-id/tsconfig": "1.0.0",
+    "react": "^19.0.0",
+    "typescript": "^5.8.2",
+    "typescript-transform-paths": "^3.5.5"
   }
 }
