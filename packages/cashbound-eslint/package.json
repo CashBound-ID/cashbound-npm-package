@@ -1,0 +1,14 @@
+{
+  "name": "@cashbound-id/eslint",
+  "version": "0.0.1",
+  "description": "The default ESLint configuration we use for our Node.js applications in Cashbound projects.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cashbound-id/tsconfig": "^1.0.0"
+  }
+}
