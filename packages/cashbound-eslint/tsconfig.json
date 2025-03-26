@@ -12,11 +12,8 @@
   "exclude": [
     "dist",
     "node_modules",
-    "swc.config.js",
     "eslint.config.mjs",
     "eslint.pre-commit.config.mjs",
-    "index.d.ts",
-    "index.js",
-    "rollup.config.mjs"
+    "rollup.config.cjs"
   ]
 }
