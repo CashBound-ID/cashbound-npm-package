@@ -19,6 +19,12 @@
       ]
     }
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "git@github.com:CashBound-ID/cashbound-npm-package.git"
+  },
   "keywords": [],
   "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "license": "ISC",
