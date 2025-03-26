@@ -1,0 +1,21 @@
+name: Check PR title
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - labeled
+      - review_requested
+      - ready_for_review
+      - synchronize
+
+jobs:
+  check-pr-title:
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+    steps:
+      - uses: aslafy-z/conventional-pr-title-action@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

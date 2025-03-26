@@ -4,9 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "init:dev": "sh etc/shells/init.sh",
+    "prepare": "sh etc/shells/prepare.sh && husky",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-empty": [
+        2,
+        "never"
+      ]
+    }
+  },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "git-cz": "^4.9.0",
+    "husky": "^9.1.7"
+  }
 }

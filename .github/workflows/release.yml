@@ -1,0 +1,102 @@
+name: Release Private Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      package:
+        description: "Package name (@cashbound-id/utils)"
+        required: true
+      version:
+        description: "Package version (1.0.0)"
+        required: true
+      option:
+        description: "Select a options release"
+        required: true
+        type: choice
+        options:
+          - "beta"
+          - "stable"
+
+env:
+  NODE_VERSION: 20
+
+permissions:
+  contents: write
+  packages: write
+  id-token: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+      pull-requests: write
+
+    outputs:
+      release-id: ${{ steps.create-release-note.outputs.id }}
+
+    steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Check user input
+        run: |
+          echo "Package name: ${{ github.event.inputs.package }}"
+          echo "Package version: ${{ github.event.inputs.version }}"
+
+          if [[ ${{ contains(github.event.inputs.version, 'v') }} == "true" ]]
+          then
+            echo "You may using 'v' as prefix version."
+            exit 1
+          fi
+
+      - name: Create .npmrc
+        run: |
+          echo "auto-install-peers=true > ~/.npmrc"
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_PAT }}" >> ~/.npmrc
+          echo "@cashbound-id:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+      - name: Install Dependencies
+        run: |
+          npm install -g pnpm@^9.12.0
+          pnpm install
+
+      - name: Build the package with its deps
+        run: pnpm --filter="${{ github.event.inputs.package }}" build
+
+      - name: Release stable version
+        if: ${{ github.event.inputs.option == 'stable' }}
+        run: |
+          pnpm --filter="${{ github.event.inputs.package }}" publish
+          pnpm --filter="${{ github.event.inputs.package }}" publish --tag ${{ github.event.inputs.package }} --version ${{ github.event.inputs.version }}
+        id: create-push-tag
+        env:
+          NPM_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+
+      - name: Release beta version
+        if: ${{ github.event.inputs.option == 'beta' }}
+        run: pnpm --filter="${{ github.event.inputs.package }}" publish --tag beta --no-git-checks
+        env:
+          NPM_TOKEN: ${{ secrets.GH_PAT }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_PAT }}
+
+      - name: Create release note
+        if: ${{ steps.create-push-tag.outcome == 'success' && github.event.inputs.option == 'stable' }}
+        id: create-release-note
+        uses: softprops/action-gh-release@b4025e2cdd6e8c3ebde4107d4b5a6bac5e66818b
+        with:
+          draft: false
+          generate_release_notes: true
+          token: ${{ secrets.GH_PAT }}
+          tag_name: "${{ github.event.inputs.package }}@${{ github.event.inputs.version }}"

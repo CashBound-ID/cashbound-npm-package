@@ -2,15 +2,11 @@
   "name": "@cashbound-id/tsconfig",
   "version": "1.0.0",
   "description": "The default TypeScript configuration that can be used across various Node.js projects.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "exports": {
     "default": "./tsconfig.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
