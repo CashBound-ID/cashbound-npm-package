@@ -13,6 +13,7 @@ on:
 jobs:
   check-pr-title:
     runs-on: ubuntu-latest
+    name: PR Title Checker
     permissions:
       statuses: write
     steps:
