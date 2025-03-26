@@ -2,6 +2,12 @@
   "name": "@cashbound-id/tsconfig",
   "version": "1.0.0",
   "description": "The default TypeScript configuration that can be used across various Node.js projects.",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "git@github.com:CashBound-ID/cashbound-npm-package.git"
+  },
   "exports": {
     "default": "./tsconfig.json"
   },
