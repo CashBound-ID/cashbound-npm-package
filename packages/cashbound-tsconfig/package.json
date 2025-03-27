@@ -1,6 +1,6 @@
 {
   "name": "@cashbound-id/tsconfig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The default TypeScript configuration that can be used across various Node.js projects.",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
