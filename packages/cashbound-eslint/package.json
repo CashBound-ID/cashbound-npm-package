@@ -2,7 +2,7 @@
   "name": "@cashbound-id/eslint",
   "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "description": "The default ESLint configuration we use for our Node.js applications in Cashbound projects.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
     "lint": "eslint",
