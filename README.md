@@ -50,7 +50,7 @@ pnpm --filter package-1 build
 
 Run ESLint and Prettier across all packages:
 ```
-pnpm --filter package-1 lint --format
+pnpm --filter package-1 lint --fix
 ```
 
 🚀 Happy coding!
