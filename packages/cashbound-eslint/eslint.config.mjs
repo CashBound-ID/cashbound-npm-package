@@ -135,16 +135,7 @@ export default [
       'dist/*',
       'node_modules/*',
       'jest.config.js',
-      'coverage/*',
-      'non-react-pre-commit.d.ts',
-      'non-react-pre-commit.js',
-      'non-react.d.ts',
-      'non-react.js',
-      'react-pre-commit.d.ts',
-      'react-pre-commit.js',
-      'react.d.ts',
-      'react.js',
-      '.tmp_staging/*'
+      'coverage/*'
     ]
   }
 ];

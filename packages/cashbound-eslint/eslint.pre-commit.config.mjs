@@ -112,15 +112,7 @@ export default [
       '.tmp_staging/dist/*',
       '.tmp_staging/node_modules/*',
       '.tmp_staging/jest.config.js',
-      '.tmp_staging/coverage/*',
-      '.tmp_staging/non-react-pre-commit.d.ts',
-      '.tmp_staging/non-react-pre-commit.js',
-      '.tmp_staging/non-react.d.ts',
-      '.tmp_staging/non-react.js',
-      '.tmp_staging/react-pre-commit.d.ts',
-      '.tmp_staging/react-pre-commit.js',
-      '.tmp_staging/react.d.ts',
-      '.tmp_staging/react.js'
+      '.tmp_staging/coverage/*'
     ]
   },
 
