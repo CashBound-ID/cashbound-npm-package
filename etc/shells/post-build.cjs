@@ -52,16 +52,48 @@ const generatePublicAPI = (args) => {
 
       case 'named export': {
         if (Array.isArray(entryPoint) && entryPoint.length > 0) {
-          const formattedEntryPoint = entryPoint.join(', ');
+          const formattedEntryPointDTS = entryPoint.reduce((result, item) => {
+            let temp = [];
+            if (result) temp.push(result);
 
-          modernJSContent = `'use client';\nexport { ${formattedEntryPoint} } from '${file}.esm';\n`;
+            if (typeof item === 'string') {
+              return [...temp, item].join(', ');
+            }
+
+            if (
+              typeof item === 'object' &&
+              item &&
+              item.type === 'interface' &&
+              typeof item.name === 'string' &&
+              item.name
+            ) {
+              return [...temp, `type ${item.name}`].join(', ');
+            }
+
+            return result;
+          }, '');
+          const formattedEntryPointNonType = entryPoint.reduce(
+            (result, item) => {
+              let temp = [];
+              if (result) temp.push(result);
+
+              if (typeof item === 'string') {
+                return [...temp, item].join(', ');
+              }
+
+              return result;
+            },
+            ''
+          );
+
+          modernJSContent = `'use client';\nexport { ${formattedEntryPointNonType} } from '${file}.esm';\n`;
           oldJSContent = [
             "'use client';",
-            `const { ${formattedEntryPoint} } = require('${file}');`,
-            `module.exports = { ${formattedEntryPoint} };`
+            `const { ${formattedEntryPointNonType} } = require('${file}');`,
+            `module.exports = { ${formattedEntryPointNonType} };`
           ].join('\n');
-          modernDTSContent = `export { ${formattedEntryPoint} } from '${file}.esm';\n`;
-          dtsContent = `export { ${formattedEntryPoint} } from '${file}';\n`;
+          modernDTSContent = `export { ${formattedEntryPointDTS} } from '${file}.esm';\n`;
+          dtsContent = `export { ${formattedEntryPointDTS} } from '${file}';\n`;
         }
         break;
       }
