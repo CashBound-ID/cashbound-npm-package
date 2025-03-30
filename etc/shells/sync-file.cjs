@@ -91,6 +91,12 @@ const registerExposedFiles = async (args) => {
 
     content.exports[`./${item.name}`] = {
       import: `./${item.name}.esm.js`,
+      require: `./${item.name}.esm.js`,
+      types: `./${item.name}.d.ts`
+    };
+
+    content.exports[`./${item.name}.cjs`] = {
+      import: `./${item.name}.js`,
       require: `./${item.name}.js`,
       types: `./${item.name}.d.ts`
     };

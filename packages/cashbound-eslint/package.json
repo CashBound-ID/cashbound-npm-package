@@ -2,9 +2,11 @@
   "name": "@cashbound-id/eslint",
   "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "description": "The default ESLint configuration we use for our Node.js applications in Cashbound projects.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "scripts": {
-    "build": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
+    "build": "pnpm build:dec && pnpm build:ts",
+    "build:dec": "tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "build:ts": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
     "lint": "eslint",
     "postbuild": "node ../../etc/shells/post-build.cjs --file-name=\"@cashbound-id/eslint\"",
     "prebuild": "pnpm run ts:patch",
@@ -93,21 +95,41 @@
   "exports": {
     "./non-react-pre-commit": {
       "import": "./non-react-pre-commit.esm.js",
+      "require": "./non-react-pre-commit.esm.js",
+      "types": "./non-react-pre-commit.d.ts"
+    },
+    "./non-react-pre-commit.cjs": {
+      "import": "./non-react-pre-commit.js",
       "require": "./non-react-pre-commit.js",
       "types": "./non-react-pre-commit.d.ts"
     },
     "./non-react": {
       "import": "./non-react.esm.js",
+      "require": "./non-react.esm.js",
+      "types": "./non-react.d.ts"
+    },
+    "./non-react.cjs": {
+      "import": "./non-react.js",
       "require": "./non-react.js",
       "types": "./non-react.d.ts"
     },
     "./react-pre-commit": {
       "import": "./react-pre-commit.esm.js",
+      "require": "./react-pre-commit.esm.js",
+      "types": "./react-pre-commit.d.ts"
+    },
+    "./react-pre-commit.cjs": {
+      "import": "./react-pre-commit.js",
       "require": "./react-pre-commit.js",
       "types": "./react-pre-commit.d.ts"
     },
     "./react": {
       "import": "./react.esm.js",
+      "require": "./react.esm.js",
+      "types": "./react.d.ts"
+    },
+    "./react.cjs": {
+      "import": "./react.js",
       "require": "./react.js",
       "types": "./react.d.ts"
     }
