@@ -1,0 +1,12 @@
+{
+  "extends": "@cashbound-id/tsconfig",
+  "compilerOptions": {
+    "rootDir": "./",
+    "emitDeclarationOnly": false,
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["./tmp_staging/*"]
+    }
+  },
+  "include": ["./.tmp_staging/src"],
+}
