@@ -1,6 +1,6 @@
 {
   "name": "@cashbound-id/utils",
-  "version": "0.0.1-beta.0",
+  "version": "1.0.0",
   "author": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -26,7 +26,6 @@
   "devDependencies": {
     "@cashbound-id/compiler": "^1.0.0",
     "@cashbound-id/eslint": "^1.0.1",
-    "@cashbound-id/tsconfig": "1.0.0",
     "@eslint/js": "^9.0.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-swc": "^0.4.0",

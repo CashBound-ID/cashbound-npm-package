@@ -1,5 +1,5 @@
 {
-  "extends": "@cashbound-id/tsconfig",
+  "extends": "@cashbound-id/compiler/tsconfig.json",
   "compilerOptions": {
     "rootDir": "./",
     "emitDeclarationOnly": false,
