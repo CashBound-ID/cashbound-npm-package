@@ -1,18 +1,18 @@
 import type { Linter } from 'eslint';
 
-import eslintFitHubJestConfig from './config/jest';
-import eslintFitHubReactConfig from './config/react';
-import eslintFitHubSharedConfig from './config/shared';
+import eslintJestConfig from './config/jest';
+import eslintReactConfig from './config/react';
+import eslintSharedConfig from './config/shared';
 import { hofEslintConfigGenerator } from './utils/eslint-config';
 
-const templateEslintFitHubReact: Linter.Config[] = [
-  ...eslintFitHubSharedConfig(),
-  ...eslintFitHubReactConfig(),
-  ...eslintFitHubJestConfig()
+const templateEslintReact: Linter.Config[] = [
+  ...eslintSharedConfig(),
+  ...eslintReactConfig(),
+  ...eslintJestConfig()
 ];
 
-const eslintFitHubReact = hofEslintConfigGenerator({
-  defaultConfig: templateEslintFitHubReact
+const eslintReact = hofEslintConfigGenerator({
+  defaultConfig: templateEslintReact
 });
 
-export default eslintFitHubReact;
+export default eslintReact;

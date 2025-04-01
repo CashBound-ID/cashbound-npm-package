@@ -1,6 +1,6 @@
 {
   "name": "@cashbound-id/compiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -15,7 +15,7 @@
     "build:ts": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
     "lint": "eslint",
     "postbuild": "node ../../etc/shells/post-build.cjs --file-name=\"@cashbound-id/compiler\"",
-    "prebuild": "pnpm run ts:patch && rm -rf dist",
+    "prebuild": "pnpm run ts:patch && pnpm run sync:file && rm -rf dist",
     "predev": "pnpm run ts:patch",
     "sync:file": "node ../../etc/shells/sync-file.cjs --file-name=\"@cashbound-id/compiler\"",
     "ts:patch": "ts-patch install -s",

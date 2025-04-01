@@ -113,9 +113,9 @@ importers:
 
   packages/cashbound-eslint:
     devDependencies:
-      '@cashbound-id/tsconfig':
+      '@cashbound-id/compiler':
         specifier: 1.0.0
-        version: 1.0.0(react@19.0.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
+        version: 1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
       '@eslint/js':
         specifier: ^9.0.0
         version: 9.23.0
@@ -196,18 +196,6 @@ importers:
         version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
       typescript-transform-paths:
         specifier: ^3.5.5
-        version: 3.5.5(typescript@5.8.2)
-
-  packages/cashbound-tsconfig:
-    devDependencies:
-      react:
-        specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
-        version: 19.0.0
-      typescript:
-        specifier: ^5.0.0
-        version: 5.8.2
-      typescript-transform-paths:
-        specifier: ^3.0.0
         version: 3.5.5(typescript@5.8.2)
 
 packages:
@@ -376,6 +364,19 @@ packages:
 
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
+
+  '@cashbound-id/compiler@1.0.0':
+    resolution: {integrity: sha512-hmfdq05TZPrRaWeVvx7VW/h39IGlQ9poeN708/4zLKuJxFmcjhtAVFN93r3rWbaALA87ZScsLzOXzvCr1hoH9g==, tarball: https://npm.pkg.github.com/download/@cashbound-id/compiler/1.0.0/b7a8a9f6d0a4ef643b9bff9686183a655883be0d}
+    peerDependencies:
+      '@rollup/plugin-commonjs': ^28.0.0
+      '@rollup/plugin-swc': ^0.4.0
+      '@rollup/plugin-typescript': ^12.0.0
+      '@swc/cli': ^0.6.0
+      '@swc/core': ^1.11.0
+      react: ^17.0.0 || ^18.0.0 || ^19.0.0
+      rollup: ^4.0.0
+      typescript: ^5.0.0
+      typescript-transform-paths: ^3.0.0
 
   '@cashbound-id/tsconfig@1.0.0':
     resolution: {integrity: sha512-NMx8SeOGGgq71aSsZBWm9dZMPv1GfUMHnv7hj6VKwWiiHvZ/moJj60orkVGn+9qpoM0ENMtlPjlOlnFKM4gy9w==, tarball: https://npm.pkg.github.com/download/@cashbound-id/tsconfig/1.0.0/93fd6554243fcce580b69558db628aa9b215e1ef}
@@ -3497,6 +3498,18 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.9
 
   '@bcoe/v8-coverage@0.2.3': {}
+
+  '@cashbound-id/compiler@1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
+    dependencies:
+      '@rollup/plugin-commonjs': 28.0.3(rollup@4.37.0)
+      '@rollup/plugin-swc': 0.4.0(@swc/core@1.11.13)(rollup@4.37.0)
+      '@rollup/plugin-typescript': 12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2)
+      '@swc/cli': 0.6.0(@swc/core@1.11.13)(chokidar@4.0.1)
+      '@swc/core': 1.11.13
+      react: 19.0.0
+      rollup: 4.37.0
+      typescript: 5.8.2
+      typescript-transform-paths: 3.5.5(typescript@5.8.2)
 
   '@cashbound-id/tsconfig@1.0.0(react@19.0.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
     dependencies:

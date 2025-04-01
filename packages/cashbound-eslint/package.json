@@ -9,7 +9,7 @@
     "build:ts": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
     "lint": "eslint",
     "postbuild": "node ../../etc/shells/post-build.cjs --file-name=\"@cashbound-id/eslint\"",
-    "prebuild": "pnpm run ts:patch",
+    "prebuild": "pnpm run ts:patch && pnpm run sync:file && rm -rf dist",
     "predev": "pnpm run ts:patch",
     "sync:file": "node ../../etc/shells/sync-file.cjs --file-name=\"@cashbound-id/eslint\"",
     "ts:patch": "ts-patch install -s",
@@ -22,7 +22,7 @@
     "url": "git@github.com:CashBound-ID/cashbound-npm-package.git"
   },
   "devDependencies": {
-    "@cashbound-id/tsconfig": "1.0.0",
+    "@cashbound-id/compiler": "1.0.0",
     "@eslint/js": "^9.0.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-swc": "^0.4.0",
@@ -54,7 +54,6 @@
   "keywords": [],
   "license": "ISC",
   "peerDependencies": {
-    "@cashbound-id/tsconfig": "1.0.0",
     "@eslint/js": "^9.0.0",
     "eslint": "^9.0.0",
     "eslint-config-prettier": ">=10.1.0",
