@@ -111,8 +111,8 @@ importers:
   packages/cashbound-eslint:
     devDependencies:
       '@cashbound-id/compiler':
-        specifier: 1.0.0
-        version: 1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
+        specifier: 1.0.2
+        version: 1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
       '@eslint/js':
         specifier: ^9.0.0
         version: 9.23.0
@@ -198,8 +198,8 @@ importers:
   packages/cashbound-utils:
     devDependencies:
       '@cashbound-id/compiler':
-        specifier: ^1.0.0
-        version: 1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
+        specifier: ^1.0.2
+        version: 1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
       '@cashbound-id/eslint':
         specifier: ^1.0.1
         version: 1.1.1(m7twn6yz2wodmnpqiixbwxapwi)
@@ -449,8 +449,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cashbound-id/compiler@1.0.0':
-    resolution: {integrity: sha512-hmfdq05TZPrRaWeVvx7VW/h39IGlQ9poeN708/4zLKuJxFmcjhtAVFN93r3rWbaALA87ZScsLzOXzvCr1hoH9g==, tarball: https://npm.pkg.github.com/download/@cashbound-id/compiler/1.0.0/b7a8a9f6d0a4ef643b9bff9686183a655883be0d}
+  '@cashbound-id/compiler@1.0.2':
+    resolution: {integrity: sha512-vnVZKnbc7WrzmTE9oHUwHyl7P75sGV44r2WempUZtyHJLTsn2cLvo0LX3nVow+n5yG1YYWd73jANzPldpXeyAg==, tarball: https://npm.pkg.github.com/download/@cashbound-id/compiler/1.0.2/36307955c415f003fb482443ce5eee0878bb8c54}
     peerDependencies:
       '@rollup/plugin-commonjs': ^28.0.0
       '@rollup/plugin-swc': ^0.4.0
@@ -3600,7 +3600,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cashbound-id/compiler@1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
+  '@cashbound-id/compiler@1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
     dependencies:
       '@rollup/plugin-commonjs': 28.0.3(rollup@4.37.0)
       '@rollup/plugin-swc': 0.4.0(@swc/core@1.11.13)(rollup@4.37.0)
