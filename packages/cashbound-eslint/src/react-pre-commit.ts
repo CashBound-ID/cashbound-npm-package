@@ -1,19 +1,19 @@
 import type { Linter } from 'eslint';
 
-import eslintFitHubJestConfig from './config/jest';
-import eslintFitHubReactConfig from './config/react';
-import eslintFitHubSharedConfig from './config/shared';
+import eslintJestConfig from './config/jest';
+import eslintReactConfig from './config/react';
+import eslintSharedConfig from './config/shared';
 import { hofEslintConfigGenerator } from './utils/eslint-config';
 
-const templateEslintFitHubReactPreCommit: Linter.Config[] = [
-  ...eslintFitHubSharedConfig('.tmp_staging/**'),
-  ...eslintFitHubReactConfig('./tsconfig.pre-commit.json'),
-  ...eslintFitHubJestConfig('.tmp_staging/**/__tests__')
+const templateEslintReactPreCommit: Linter.Config[] = [
+  ...eslintSharedConfig('.tmp_staging/**'),
+  ...eslintReactConfig('./tsconfig.pre-commit.json'),
+  ...eslintJestConfig('.tmp_staging/**/__tests__')
 ];
 
-const eslintFitHubReactPreCommit = hofEslintConfigGenerator({
-  defaultConfig: templateEslintFitHubReactPreCommit,
+const eslintReactPreCommit = hofEslintConfigGenerator({
+  defaultConfig: templateEslintReactPreCommit,
   isPreCommit: true
 });
 
-export default eslintFitHubReactPreCommit;
+export default eslintReactPreCommit;

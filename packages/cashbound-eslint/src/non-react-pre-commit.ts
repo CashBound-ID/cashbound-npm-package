@@ -1,12 +1,12 @@
 import type { Linter } from 'eslint';
 
-import eslintFitHubJestConfig from './config/jest';
-import eslintFitHubSharedConfig from './config/shared';
+import eslintJestConfig from './config/jest';
+import eslintSharedConfig from './config/shared';
 import { hofEslintConfigGenerator } from './utils/eslint-config';
 
-const templateEslintFitHubReactPreCommit: Linter.Config[] = [
-  ...eslintFitHubSharedConfig('.tmp_staging/**'),
-  ...eslintFitHubJestConfig('.tmp_staging/**/__tests__'),
+const templateEslintReactPreCommit: Linter.Config[] = [
+  ...eslintSharedConfig('.tmp_staging/**'),
+  ...eslintJestConfig('.tmp_staging/**/__tests__'),
   {
     languageOptions: {
       parserOptions: {
@@ -19,9 +19,9 @@ const templateEslintFitHubReactPreCommit: Linter.Config[] = [
   }
 ];
 
-const eslintFitHubNonReactPreCommit = hofEslintConfigGenerator({
-  defaultConfig: templateEslintFitHubReactPreCommit,
+const eslintNonReactPreCommit = hofEslintConfigGenerator({
+  defaultConfig: templateEslintReactPreCommit,
   isPreCommit: true
 });
 
-export default eslintFitHubNonReactPreCommit;
+export default eslintNonReactPreCommit;

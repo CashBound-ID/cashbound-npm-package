@@ -25,7 +25,7 @@ yarn add -D @cashbound-id/eslint
 We currently provide two templates: one for React projects and another for non-React JavaScript projects. Starting with ESLint version 9, we now use flat configuration for defining ESLint configuration. Here are the steps to use the ESLint configuration:
 
 ### 1. Install Package & remove ESLint and ESLint plugin package
-Before creating the configuration file, please remove all existing ESLint and ESLint plugin packages. Then, you can install the Fithub ESLint package using yarn, npm, or pnpm, which will automatically install the necessary peer dependencies.
+Before creating the configuration file, please remove all existing ESLint and ESLint plugin packages. Then, you can install the ESLint package using yarn, npm, or pnpm, which will automatically install the necessary peer dependencies.
 
 ```bash
 pnpm add -D @cashbound-id/eslint $(pnpm info @cashbound-id/eslint peerDependencies --json  | jq -r 'keys[]')

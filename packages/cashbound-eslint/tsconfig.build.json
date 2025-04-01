@@ -1,5 +1,5 @@
 {
-  "extends": "@cashbound-id/tsconfig",
+  "extends": "@cashbound-id/compiler/tsconfig.json",
   "compilerOptions": {
     "emitDeclarationOnly": false,
     "importHelpers": false,
@@ -9,7 +9,8 @@
     "outDir": "./dist",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "rootDir": "src"
   },
   "include": ["./src"],
   "exclude": [
