@@ -23,9 +23,6 @@ importers:
 
   packages/cashbound-compiler:
     devDependencies:
-      '@cashbound-id/tsconfig':
-        specifier: 1.0.0
-        version: 1.0.0(react@19.0.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
       '@eslint/js':
         specifier: ^9.0.0
         version: 9.23.0

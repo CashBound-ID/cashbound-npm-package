@@ -1,6 +1,6 @@
 {
   "name": "@cashbound-id/compiler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -24,7 +24,6 @@
   "keywords": [],
   "license": "ISC",
   "devDependencies": {
-    "@cashbound-id/tsconfig": "1.0.0",
     "@eslint/js": "^9.0.0",
     "@rollup/plugin-commonjs": "^28.0.0",
     "@rollup/plugin-swc": "^0.4.0",
