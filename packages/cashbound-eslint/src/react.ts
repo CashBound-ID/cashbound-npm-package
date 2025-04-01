@@ -8,7 +8,17 @@ import { hofEslintConfigGenerator } from './utils/eslint-config';
 const templateEslintReact: Linter.Config[] = [
   ...eslintSharedConfig(),
   ...eslintReactConfig(),
-  ...eslintJestConfig()
+  ...eslintJestConfig(),
+  {
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        project: true,
+        sourceType: 'module',
+        tsconfigRootDir: '.'
+      }
+    }
+  }
 ];
 
 const eslintReact = hofEslintConfigGenerator({
