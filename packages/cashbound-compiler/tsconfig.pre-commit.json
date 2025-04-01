@@ -33,8 +33,8 @@
     "noUnusedParameters": true,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["./tmp_staging/*"]
-    }
+      "@/*": ["./tmp_staging/src/*"]
+    },
     "plugins": [
       {
         "afterDeclarations": true,

@@ -5,7 +5,7 @@
     "emitDeclarationOnly": false,
     "jsx": "react-jsx",
     "paths": {
-      "@/*": ["./tmp_staging/*"]
+      "@/*": ["./tmp_staging/src/*"]
     }
   },
   "include": ["./.tmp_staging/src"],
