@@ -15,7 +15,7 @@
     "build:ts": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
     "lint": "eslint",
     "postbuild": "node ../../etc/shells/post-build.cjs --file-name=\"@cashbound-id/utils\"",
-    "prebuild": "pnpm run ts:patch",
+    "prebuild": "pnpm run ts:patch && pnpm run sync:file && rm -rf dist",
     "predev": "pnpm run ts:patch",
     "sync:file": "node ../../etc/shells/sync-file.cjs --file-name=\"@cashbound-id/utils\"",
     "ts:patch": "ts-patch install -s",
