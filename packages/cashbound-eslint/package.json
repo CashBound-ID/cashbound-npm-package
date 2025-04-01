@@ -2,7 +2,7 @@
   "name": "@cashbound-id/eslint",
   "author": "Irfan Andriansyah <irfanandriansyah10@gmail.com>",
   "description": "The default ESLint configuration we use for our Node.js applications in Cashbound projects.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "build": "pnpm build:dec && pnpm build:ts",
     "build:dec": "tsc -p tsconfig.build.json --emitDeclarationOnly",
