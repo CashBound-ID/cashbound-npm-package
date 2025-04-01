@@ -483,13 +483,6 @@ packages:
       typescript-eslint: ^8.0.0
       typescript-transform-paths: ^3.0.0
 
-  '@cashbound-id/tsconfig@1.0.0':
-    resolution: {integrity: sha512-NMx8SeOGGgq71aSsZBWm9dZMPv1GfUMHnv7hj6VKwWiiHvZ/moJj60orkVGn+9qpoM0ENMtlPjlOlnFKM4gy9w==, tarball: https://npm.pkg.github.com/download/@cashbound-id/tsconfig/1.0.0/93fd6554243fcce580b69558db628aa9b215e1ef}
-    peerDependencies:
-      react: ^17.0.0 || ^18.0.0 || ^19.0.0
-      typescript: ^5.0.0
-      typescript-transform-paths: ^3.0.0
-
   '@commitlint/cli@19.8.0':
     resolution: {integrity: sha512-t/fCrLVu+Ru01h0DtlgHZXbHV2Y8gKocTR5elDOqIRUzQd0/6hpt2VIWOj9b3NDo7y4/gfxeR2zRtXq/qO6iUg==}
     engines: {node: '>=v18'}
@@ -3637,12 +3630,6 @@ snapshots:
       react: 19.0.0
       typescript: 5.8.2
       typescript-eslint: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
-      typescript-transform-paths: 3.5.5(typescript@5.8.2)
-
-  '@cashbound-id/tsconfig@1.0.0(react@19.0.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
-    dependencies:
-      react: 19.0.0
-      typescript: 5.8.2
       typescript-transform-paths: 3.5.5(typescript@5.8.2)
 
   '@commitlint/cli@19.8.0(@types/node@22.13.14)(typescript@5.8.2)':
