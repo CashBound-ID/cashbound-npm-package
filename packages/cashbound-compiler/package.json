@@ -1,6 +1,6 @@
 {
   "name": "@cashbound-id/compiler",
-  "version": "0.0.1-beta.0",
+  "version": "1.0.0",
   "author": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
