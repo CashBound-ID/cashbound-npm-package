@@ -1,11 +1,10 @@
 # Compiler Package
 
-This npm package provides a set of shared compiler configurations. Currently, it includes configurations for Rollup and TypeScript (tsconfig).
-
+This npm package offers a collection of shared compiler configurations. Currently, it supports Rollup and TypeScript (`tsconfig`).
 
 ## Installation
 
-To install this package, use your preferred package manager:
+Install the package using your preferred package manager:
 
 ### Using pnpm
 ```bash
@@ -22,50 +21,59 @@ npm install @cashbound-id/compiler
 yarn add @cashbound-id/compiler
 ```
 
-## Provided Configuration
+## Available Configurations
+
 ### Rollup Configuration
-To use this configuration you need to create the rollup configuration first and import the config from our npm package.
+To use this configuration, first create a Rollup configuration file and import the provided setup from this package.
 
-#### Step 1: Create or update your rollup config
+#### Step 1: Create or Update Your Rollup Config
 
-In your project root, create a `rollup.config.cjs` file (if it doesn't already exists) and do import our config provided by this package
+In your project root, create a `rollup.config.cjs` file (if it doesn't already exist) and import the configuration:
+
 ```js
 import { rollupConfig } from '@cashbound-id/compiler/rollup.cjs';
 
 export default rollupConfig({ baseDir: __dirname });
 ```
 
-#### Step 2: Customize
+#### Step 2: Customize Configuration
 
-You can customize the `compilerOptions` or any other properties in your `tsconfig.json` to fit your project’s specific needs.
+The method accepts several arguments that can be adjusted based on your requirements:
 
-### TS Config
-To use the `tsconfig.json` template from this package, extend it in your project's `tsconfig.json` file.
+| Argument      | Example Value  | Description |
+|--------------|--------------|-------------|
+| `baseDir`       | `__dirname`   | Defines the base directory used when compiling JavaScript files. |
+| `inputPlugins`  | `[]`          | Allows adding additional plugins to the input stage. See the Rollup documentation for details. |
+| `outputPlugins` | `[]`          | Enables adding extra plugins to the output stage. Refer to the Rollup documentation for guidance. |
+| `cjsConfig`     | `{}`          | Customizes the CommonJS plugin parameters. More details can be found in the `@rollup/plugin-commonjs` documentation. |
 
-#### Step 1: Create or update your `tsconfig.json`
+### TypeScript Configuration
+To apply the `tsconfig.json` template from this package, extend it in your project's `tsconfig.json` file.
 
-In your project root, create a `tsconfig.json` file (if it doesn’t already exist) and extend the template provided by this package:
+#### Step 1: Create or Update `tsconfig.json`
+
+In your project root, create or modify `tsconfig.json` to extend the provided configuration:
 
 ```json
 {
   "extends": "@cashbound-id/compiler/tsconfig.json",
   "compilerOptions": {
-    // You can override or add your own options here
+    // Customize or override options as needed
   }
 }
 ```
 
-#### Step 2: Customize
+#### Step 2: Customize Configuration
 
-You can customize the `compilerOptions` or any other properties in your `tsconfig.json` to fit your project’s specific needs.
+Modify the `compilerOptions` or other settings in your `tsconfig.json` to fit your project's needs.
 
-#### Template Overview
+#### Overview of Provided Template
 
-This template provides a basic setup for TypeScript projects, including options like:
+This template includes essential TypeScript settings such as:
 
-- **`target`**: Specifies the target JavaScript language version.
-- **`module`**: Determines the module system (e.g., CommonJS, ES6).
-- **`strict`**: Enables strict type-checking options.
-- **`esModuleInterop`**: Allows default imports from CommonJS modules.
+- **`target`**: Defines the output JavaScript version.
+- **`module`**: Specifies the module system (e.g., CommonJS, ES6).
+- **`strict`**: Enables strict type-checking.
+- **`esModuleInterop`**: Supports default imports from CommonJS modules.
 
-You can view the full configuration by looking into the `src/tsconfig/index.json` file in this package.
+For a complete configuration reference, check the `src/tsconfig/index.json` file in this package.
