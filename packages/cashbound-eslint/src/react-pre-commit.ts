@@ -8,7 +8,17 @@ import { hofEslintConfigGenerator } from './utils/eslint-config';
 const templateEslintReactPreCommit: Linter.Config[] = [
   ...eslintSharedConfig('.tmp_staging/**'),
   ...eslintReactConfig('./tsconfig.pre-commit.json'),
-  ...eslintJestConfig('.tmp_staging/**/__tests__')
+  ...eslintJestConfig('.tmp_staging/**/__tests__'),
+  {
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        project: ['./tsconfig.pre-commit.json'],
+        sourceType: 'module',
+        tsconfigRootDir: '.'
+      }
+    }
+  }
 ];
 
 const eslintReactPreCommit = hofEslintConfigGenerator({
