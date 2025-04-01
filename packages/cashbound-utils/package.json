@@ -1,0 +1,247 @@
+{
+  "name": "@cashbound-id/utils",
+  "version": "1.0.0",
+  "author": "",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "url": "git@github.com:CashBound-ID/cashbound-npm-package.git"
+  },
+  "description": "Shared utilities for use across all cashbound repositories.",
+  "scripts": {
+    "build": "pnpm build:dec && pnpm build:ts",
+    "build:dec": "tsc -p tsconfig.build.json --emitDeclarationOnly",
+    "build:ts": "node --max-old-space-size=8192 node_modules/rollup/dist/bin/rollup -c --bundleConfigAsCjs --silent",
+    "lint": "eslint",
+    "postbuild": "node ../../etc/shells/post-build.cjs --file-name=\"@cashbound-id/utils\"",
+    "prebuild": "pnpm run ts:patch && pnpm run sync:file && rm -rf dist",
+    "predev": "pnpm run ts:patch",
+    "sync:file": "node ../../etc/shells/sync-file.cjs --file-name=\"@cashbound-id/utils\"",
+    "ts:patch": "ts-patch install -s",
+    "type:check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@cashbound-id/compiler": "^1.0.2",
+    "@cashbound-id/eslint": "^1.0.1",
+    "@eslint/js": "^9.0.0",
+    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-swc": "^0.4.0",
+    "@rollup/plugin-typescript": "^12.1.2",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.11.13",
+    "dayjs": "^1.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": ">=10.1.0",
+    "eslint-plugin-jest": "^28.0.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "eslint-plugin-sort-keys-fix": "^1.0.0",
+    "eslint-plugin-typescript-sort-keys": "^3.0.0",
+    "globals": "^16.0.0",
+    "jest": "^28.0.0 || ^29.0.0",
+    "prettier": ">=3.0.0",
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "rollup": "^4.0.0",
+    "ts-patch": "^3.0.0",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.0.0",
+    "typescript-transform-paths": "^3.5.5"
+  },
+  "peerDependencies": {
+    "dayjs": "^1.0.0",
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "files": [
+    "dist",
+    "animation.js",
+    "animation.d.ts",
+    "animation.esm.js",
+    "animation.esm.d.ts",
+    "api.js",
+    "api.d.ts",
+    "api.esm.js",
+    "api.esm.d.ts",
+    "css.js",
+    "css.d.ts",
+    "css.esm.js",
+    "css.esm.d.ts",
+    "date.js",
+    "date.d.ts",
+    "date.esm.js",
+    "date.esm.d.ts",
+    "emitter.js",
+    "emitter.d.ts",
+    "emitter.esm.js",
+    "emitter.esm.d.ts",
+    "error.js",
+    "error.d.ts",
+    "error.esm.js",
+    "error.esm.d.ts",
+    "image.js",
+    "image.d.ts",
+    "image.esm.js",
+    "image.esm.d.ts",
+    "misc.js",
+    "misc.d.ts",
+    "misc.esm.js",
+    "misc.esm.d.ts",
+    "observer.js",
+    "observer.d.ts",
+    "observer.esm.js",
+    "observer.esm.d.ts",
+    "parse.js",
+    "parse.d.ts",
+    "parse.esm.js",
+    "parse.esm.d.ts",
+    "phone.js",
+    "phone.d.ts",
+    "phone.esm.js",
+    "phone.esm.d.ts",
+    "process.js",
+    "process.d.ts",
+    "process.esm.js",
+    "process.esm.d.ts",
+    "url.js",
+    "url.d.ts",
+    "url.esm.js",
+    "url.esm.d.ts"
+  ],
+  "exports": {
+    "./animation": {
+      "import": "./animation.esm.js",
+      "require": "./animation.esm.js",
+      "types": "./animation.d.ts"
+    },
+    "./animation.cjs": {
+      "import": "./animation.js",
+      "require": "./animation.js",
+      "types": "./animation.d.ts"
+    },
+    "./api": {
+      "import": "./api.esm.js",
+      "require": "./api.esm.js",
+      "types": "./api.d.ts"
+    },
+    "./api.cjs": {
+      "import": "./api.js",
+      "require": "./api.js",
+      "types": "./api.d.ts"
+    },
+    "./css": {
+      "import": "./css.esm.js",
+      "require": "./css.esm.js",
+      "types": "./css.d.ts"
+    },
+    "./css.cjs": {
+      "import": "./css.js",
+      "require": "./css.js",
+      "types": "./css.d.ts"
+    },
+    "./date": {
+      "import": "./date.esm.js",
+      "require": "./date.esm.js",
+      "types": "./date.d.ts"
+    },
+    "./date.cjs": {
+      "import": "./date.js",
+      "require": "./date.js",
+      "types": "./date.d.ts"
+    },
+    "./emitter": {
+      "import": "./emitter.esm.js",
+      "require": "./emitter.esm.js",
+      "types": "./emitter.d.ts"
+    },
+    "./emitter.cjs": {
+      "import": "./emitter.js",
+      "require": "./emitter.js",
+      "types": "./emitter.d.ts"
+    },
+    "./error": {
+      "import": "./error.esm.js",
+      "require": "./error.esm.js",
+      "types": "./error.d.ts"
+    },
+    "./error.cjs": {
+      "import": "./error.js",
+      "require": "./error.js",
+      "types": "./error.d.ts"
+    },
+    "./image": {
+      "import": "./image.esm.js",
+      "require": "./image.esm.js",
+      "types": "./image.d.ts"
+    },
+    "./image.cjs": {
+      "import": "./image.js",
+      "require": "./image.js",
+      "types": "./image.d.ts"
+    },
+    "./misc": {
+      "import": "./misc.esm.js",
+      "require": "./misc.esm.js",
+      "types": "./misc.d.ts"
+    },
+    "./misc.cjs": {
+      "import": "./misc.js",
+      "require": "./misc.js",
+      "types": "./misc.d.ts"
+    },
+    "./observer": {
+      "import": "./observer.esm.js",
+      "require": "./observer.esm.js",
+      "types": "./observer.d.ts"
+    },
+    "./observer.cjs": {
+      "import": "./observer.js",
+      "require": "./observer.js",
+      "types": "./observer.d.ts"
+    },
+    "./parse": {
+      "import": "./parse.esm.js",
+      "require": "./parse.esm.js",
+      "types": "./parse.d.ts"
+    },
+    "./parse.cjs": {
+      "import": "./parse.js",
+      "require": "./parse.js",
+      "types": "./parse.d.ts"
+    },
+    "./phone": {
+      "import": "./phone.esm.js",
+      "require": "./phone.esm.js",
+      "types": "./phone.d.ts"
+    },
+    "./phone.cjs": {
+      "import": "./phone.js",
+      "require": "./phone.js",
+      "types": "./phone.d.ts"
+    },
+    "./process": {
+      "import": "./process.esm.js",
+      "require": "./process.esm.js",
+      "types": "./process.d.ts"
+    },
+    "./process.cjs": {
+      "import": "./process.js",
+      "require": "./process.js",
+      "types": "./process.d.ts"
+    },
+    "./url": {
+      "import": "./url.esm.js",
+      "require": "./url.esm.js",
+      "types": "./url.d.ts"
+    },
+    "./url.cjs": {
+      "import": "./url.js",
+      "require": "./url.js",
+      "types": "./url.d.ts"
+    }
+  }
+}

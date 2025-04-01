@@ -87,6 +87,17 @@ jobs:
         run: |
           npm install -g pnpm@^9.12.0
           pnpm install
+      
+      - name: Check stale lockfile
+        run: |
+          if [[ $(git diff pnpm-lock.yaml | wc -c) -gt 0 ]]
+          then
+            printf "✘ There are pnpm-lock.yaml changes that are not commited. Maybe you or someone else updated dependencies but forgot to update pnpm-lock.yaml. Please check.\n"
+            git status --porcelain
+            exit 1
+          else
+            printf "✓ pnpm-lock.yaml is already up to date\n"
+          fi
 
       - name: Build Related File
         run: pnpm --filter="[${{ env.BASE_BRANCH }}...${{ env.BRANCH_NAME }}]" run build

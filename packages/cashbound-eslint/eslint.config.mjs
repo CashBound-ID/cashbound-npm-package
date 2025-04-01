@@ -5,7 +5,23 @@ import eslintPluginSortDestructureKeys from 'eslint-plugin-sort-destructure-keys
 import eslintPluginSortKeysFix from 'eslint-plugin-sort-keys-fix';
 import eslintPluginTypescriptSortKeys from 'eslint-plugin-typescript-sort-keys';
 import globals from 'globals';
+import { createRequire } from 'node:module';
 import tseslint from 'typescript-eslint';
+
+const require = createRequire(import.meta.url);
+const { 'js-file': jsFiles } = require('./etc/config/entrypoint-file.json');
+
+const ignoredGeneratedFile = jsFiles.reduce(
+  (result, item) => {
+    const { name } = item;
+
+    result.push(
+      ...[`${name}.js`, `${name}.d.ts`, `${name}.esm.js`, `${name}.esm.d.ts`]
+    );
+    return result;
+  },
+  ['index.js', 'index.d.ts', 'index.esm.js', 'index.esm.d.ts']
+);
 
 export default [
   /////////////////////////////////////////////////////////////////////////////
@@ -136,15 +152,8 @@ export default [
       'node_modules/*',
       'jest.config.js',
       'coverage/*',
-      'non-react-pre-commit.d.ts',
-      'non-react-pre-commit.js',
-      'non-react.d.ts',
-      'non-react.js',
-      'react-pre-commit.d.ts',
-      'react-pre-commit.js',
-      'react.d.ts',
-      'react.js',
-      '.tmp_staging/*'
+      'rollup.config.cjs',
+      ...ignoredGeneratedFile
     ]
   }
 ];

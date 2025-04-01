@@ -111,8 +111,8 @@ importers:
   packages/cashbound-eslint:
     devDependencies:
       '@cashbound-id/compiler':
-        specifier: 1.0.0
-        version: 1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
+        specifier: 1.0.2
+        version: 1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
       '@eslint/js':
         specifier: ^9.0.0
         version: 9.23.0
@@ -187,6 +187,93 @@ importers:
         version: 3.3.0
       typescript:
         specifier: ^5.0.0
+        version: 5.8.2
+      typescript-eslint:
+        specifier: ^8.0.0
+        version: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+      typescript-transform-paths:
+        specifier: ^3.5.5
+        version: 3.5.5(typescript@5.8.2)
+
+  packages/cashbound-utils:
+    devDependencies:
+      '@cashbound-id/compiler':
+        specifier: ^1.0.2
+        version: 1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)
+      '@cashbound-id/eslint':
+        specifier: ^1.0.1
+        version: 1.1.1(m7twn6yz2wodmnpqiixbwxapwi)
+      '@eslint/js':
+        specifier: ^9.0.0
+        version: 9.23.0
+      '@rollup/plugin-commonjs':
+        specifier: ^28.0.3
+        version: 28.0.3(rollup@4.37.0)
+      '@rollup/plugin-swc':
+        specifier: ^0.4.0
+        version: 0.4.0(@swc/core@1.11.13)(rollup@4.37.0)
+      '@rollup/plugin-typescript':
+        specifier: ^12.1.2
+        version: 12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2)
+      '@swc/cli':
+        specifier: ^0.6.0
+        version: 0.6.0(@swc/core@1.11.13)(chokidar@4.0.1)
+      '@swc/core':
+        specifier: ^1.11.13
+        version: 1.11.13
+      dayjs:
+        specifier: ^1.0.0
+        version: 1.11.13
+      eslint:
+        specifier: ^9.0.0
+        version: 9.23.0(jiti@2.4.2)
+      eslint-config-prettier:
+        specifier: '>=10.1.0'
+        version: 10.1.1(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-jest:
+        specifier: ^28.0.0
+        version: 28.11.0(@typescript-eslint/eslint-plugin@8.28.0(@typescript-eslint/parser@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(jest@29.7.0(@types/node@22.13.14))(typescript@5.8.2)
+      eslint-plugin-jsx-a11y:
+        specifier: ^6.0.0
+        version: 6.10.2(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-prettier:
+        specifier: ^5.0.0
+        version: 5.2.5(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3)
+      eslint-plugin-react:
+        specifier: ^7.0.0
+        version: 7.37.4(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-react-hooks:
+        specifier: ^5.0.0
+        version: 5.2.0(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-sort-destructure-keys:
+        specifier: ^2.0.0
+        version: 2.0.0(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-sort-keys-fix:
+        specifier: ^1.0.0
+        version: 1.1.2
+      eslint-plugin-typescript-sort-keys:
+        specifier: ^3.0.0
+        version: 3.3.0(@typescript-eslint/parser@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+      globals:
+        specifier: ^16.0.0
+        version: 16.0.0
+      jest:
+        specifier: ^28.0.0 || ^29.0.0
+        version: 29.7.0(@types/node@22.13.14)
+      prettier:
+        specifier: '>=3.0.0'
+        version: 3.5.3
+      react:
+        specifier: ^17.0.0 || ^18.0.0 || ^19.0.0
+        version: 19.0.0
+      rollup:
+        specifier: ^4.0.0
+        version: 4.37.0
+      ts-patch:
+        specifier: ^3.0.0
+        version: 3.3.0
+      typescript:
+        specifier: ^5.8.2
         version: 5.8.2
       typescript-eslint:
         specifier: ^8.0.0
@@ -362,8 +449,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@cashbound-id/compiler@1.0.0':
-    resolution: {integrity: sha512-hmfdq05TZPrRaWeVvx7VW/h39IGlQ9poeN708/4zLKuJxFmcjhtAVFN93r3rWbaALA87ZScsLzOXzvCr1hoH9g==, tarball: https://npm.pkg.github.com/download/@cashbound-id/compiler/1.0.0/b7a8a9f6d0a4ef643b9bff9686183a655883be0d}
+  '@cashbound-id/compiler@1.0.2':
+    resolution: {integrity: sha512-vnVZKnbc7WrzmTE9oHUwHyl7P75sGV44r2WempUZtyHJLTsn2cLvo0LX3nVow+n5yG1YYWd73jANzPldpXeyAg==, tarball: https://npm.pkg.github.com/download/@cashbound-id/compiler/1.0.2/36307955c415f003fb482443ce5eee0878bb8c54}
     peerDependencies:
       '@rollup/plugin-commonjs': ^28.0.0
       '@rollup/plugin-swc': ^0.4.0
@@ -375,11 +462,25 @@ packages:
       typescript: ^5.0.0
       typescript-transform-paths: ^3.0.0
 
-  '@cashbound-id/tsconfig@1.0.0':
-    resolution: {integrity: sha512-NMx8SeOGGgq71aSsZBWm9dZMPv1GfUMHnv7hj6VKwWiiHvZ/moJj60orkVGn+9qpoM0ENMtlPjlOlnFKM4gy9w==, tarball: https://npm.pkg.github.com/download/@cashbound-id/tsconfig/1.0.0/93fd6554243fcce580b69558db628aa9b215e1ef}
+  '@cashbound-id/eslint@1.1.1':
+    resolution: {integrity: sha512-R7WC5lnnxtmGm0Oco0i6ZiJcmIBZ1mrLg18r/ck/US7zS0ePGo1em8EBThntu3CmAVKZHUJujPeBmEmQNMeCdw==, tarball: https://npm.pkg.github.com/download/@cashbound-id/eslint/1.1.1/9bd03b1e0f3a2fc85e820ba767ec2422a1dff747}
     peerDependencies:
+      '@eslint/js': ^9.0.0
+      eslint: ^9.0.0
+      eslint-config-prettier: '>=10.1.0'
+      eslint-plugin-jest: ^28.0.0
+      eslint-plugin-jsx-a11y: ^6.0.0
+      eslint-plugin-prettier: ^5.0.0
+      eslint-plugin-react: ^7.0.0
+      eslint-plugin-react-hooks: ^5.0.0
+      eslint-plugin-sort-destructure-keys: ^2.0.0
+      eslint-plugin-sort-keys-fix: ^1.0.0
+      eslint-plugin-typescript-sort-keys: ^3.0.0
+      jest: ^28.0.0 || ^29.0.0
+      prettier: '>=3.0.0'
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       typescript: ^5.0.0
+      typescript-eslint: ^8.0.0
       typescript-transform-paths: ^3.0.0
 
   '@commitlint/cli@19.8.0':
@@ -1502,6 +1603,9 @@ packages:
   data-view-byte-offset@1.0.1:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   debug@4.4.0:
     resolution: {integrity: sha512-6WTZ/IxCY/T6BALoZHaE4ctp9xm+Z5kY/pzYaCHRFeyVhojxlrm+46y68HA6hr0TcwEssoxNiDEUJQjfPZ/RYA==}
@@ -3496,7 +3600,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@cashbound-id/compiler@1.0.0(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
+  '@cashbound-id/compiler@1.0.2(@rollup/plugin-commonjs@28.0.3(rollup@4.37.0))(@rollup/plugin-swc@0.4.0(@swc/core@1.11.13)(rollup@4.37.0))(@rollup/plugin-typescript@12.1.2(rollup@4.37.0)(tslib@2.8.1)(typescript@5.8.2))(@swc/cli@0.6.0(@swc/core@1.11.13)(chokidar@4.0.1))(@swc/core@1.11.13)(react@19.0.0)(rollup@4.37.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
     dependencies:
       '@rollup/plugin-commonjs': 28.0.3(rollup@4.37.0)
       '@rollup/plugin-swc': 0.4.0(@swc/core@1.11.13)(rollup@4.37.0)
@@ -3508,10 +3612,24 @@ snapshots:
       typescript: 5.8.2
       typescript-transform-paths: 3.5.5(typescript@5.8.2)
 
-  '@cashbound-id/tsconfig@1.0.0(react@19.0.0)(typescript-transform-paths@3.5.5(typescript@5.8.2))(typescript@5.8.2)':
+  '@cashbound-id/eslint@1.1.1(m7twn6yz2wodmnpqiixbwxapwi)':
     dependencies:
+      '@eslint/js': 9.23.0
+      eslint: 9.23.0(jiti@2.4.2)
+      eslint-config-prettier: 10.1.1(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-jest: 28.11.0(@typescript-eslint/eslint-plugin@8.28.0(@typescript-eslint/parser@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(jest@29.7.0(@types/node@22.13.14))(typescript@5.8.2)
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-prettier: 5.2.5(eslint-config-prettier@10.1.1(eslint@9.23.0(jiti@2.4.2)))(eslint@9.23.0(jiti@2.4.2))(prettier@3.5.3)
+      eslint-plugin-react: 7.37.4(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-react-hooks: 5.2.0(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-sort-destructure-keys: 2.0.0(eslint@9.23.0(jiti@2.4.2))
+      eslint-plugin-sort-keys-fix: 1.1.2
+      eslint-plugin-typescript-sort-keys: 3.3.0(@typescript-eslint/parser@8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2))(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
+      jest: 29.7.0(@types/node@22.13.14)
+      prettier: 3.5.3
       react: 19.0.0
       typescript: 5.8.2
+      typescript-eslint: 8.28.0(eslint@9.23.0(jiti@2.4.2))(typescript@5.8.2)
       typescript-transform-paths: 3.5.5(typescript@5.8.2)
 
   '@commitlint/cli@19.8.0(@types/node@22.13.14)(typescript@5.8.2)':
@@ -4809,6 +4927,8 @@ snapshots:
       call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
+
+  dayjs@1.11.13: {}
 
   debug@4.4.0:
     dependencies:
