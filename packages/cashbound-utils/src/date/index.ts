@@ -11,7 +11,11 @@ import dayjs from 'dayjs';
  * @returns {string} - The formatted time unit value as a string, with a leading zero if necessary.
  */
 export const formatTimeUnit = (value: number): string => {
-  return String(value).padStart(2, '0');
+  if (typeof value === 'number' && value >= 0 && value <= 59) {
+    return String(value).padStart(2, '0');
+  }
+
+  return '00';
 };
 
 /**
@@ -24,30 +28,11 @@ export const formatTimeUnit = (value: number): string => {
 export const convertStringToDate = (date: string): Date | undefined => {
   try {
     if (typeof date === 'string' && date) {
-      return new Date(date);
-    }
+      const formattedDate = new Date(date);
 
-    throw new Error();
-  } catch {
-    return undefined;
-  }
-};
-
-/**
- * Converts a Date object to a formatted string using the specified format.
- * Returns undefined for invalid Date objects or errors.
- *
- * @param {Date} date - The Date object to convert.
- * @param {string} format - The format string to use (compatible with dayjs formatting).
- * @returns {string | undefined} - The formatted date string or undefined if an error occurs.
- */
-export const convertDateToString = (
-  date: Date,
-  format: string
-): string | undefined => {
-  try {
-    if (date instanceof Date) {
-      return dayjs(date).format(format);
+      if (!Number.isNaN(formattedDate.getTime())) {
+        return formattedDate;
+      }
     }
 
     throw new Error();
@@ -64,8 +49,37 @@ export const convertDateToString = (
  */
 export const convertEpochToDate = (value: number): Date | undefined => {
   try {
-    if (typeof value === 'number' && value) {
+    if (typeof value === 'number' && value && value >= 0) {
       return new Date(value * 1000);
+    }
+
+    throw new Error();
+  } catch {
+    return undefined;
+  }
+};
+
+/**
+ * Converts a Date object to a formatted string using the specified format.
+ * Returns undefined for invalid Date objects or errors.
+ *
+ * @param {Date | number | string} date - The Date argument to convert.
+ * @param {string} format - The format string to use (compatible with dayjs formatting).
+ * @returns {string | undefined} - The formatted date string or undefined if an error occurs.
+ */
+export const convertToFormattedDate = (
+  date: Date | number | string,
+  format: string
+): string | undefined => {
+  try {
+    if (
+      date instanceof Date ||
+      typeof date === 'string' ||
+      typeof date === 'number'
+    ) {
+      const result = dayjs(date).format(format);
+
+      if (result !== 'Invalid Date') return result;
     }
 
     throw new Error();
@@ -77,14 +91,21 @@ export const convertEpochToDate = (value: number): Date | undefined => {
 /**
  * Converts a Date object to an epoch timestamp in seconds. Returns undefined for invalid or empty inputs.
  *
- * @param {Date} date - The Date object to convert.
+ * @param {Date | number | string} date - The Date object to convert.
  * @returns {number | undefined} - The epoch timestamp in seconds or undefined.
  */
-export const convertDateToEpoch = (date: Date): number | undefined => {
+export const convertToEpoch = (
+  date: Date | number | string
+): number | undefined => {
   try {
+    let result: number | undefined;
     if (date instanceof Date) {
-      return date.getTime() / 1000;
+      result = date.getTime() / 1000;
+    } else if (typeof date === 'string' || typeof date === 'number') {
+      result = dayjs(date).unix();
     }
+
+    if (!Number.isNaN(result)) return result;
 
     throw new Error();
   } catch {
@@ -102,7 +123,7 @@ export const convertDateToEpoch = (date: Date): number | undefined => {
  * @param {Date} date - The date object to be modified.
  * @returns {Date} The modified date object with the time set to midnight.
  */
-export const setToMidnight = (date: Date): Date => {
+export const setBeginningOfDay = (date: Date): Date => {
   date.setHours(0);
   date.setMinutes(0);
   date.setSeconds(0);
@@ -117,7 +138,7 @@ export const setToMidnight = (date: Date): Date => {
  * @param {Date} date - The date object to be modified.
  * @returns {Date} The modified date object with the time set to end of day.
  */
-export const setToEndOfDay = (date: Date): Date => {
+export const setEndOfDay = (date: Date): Date => {
   date.setHours(23);
   date.setMinutes(59);
   date.setSeconds(59);
@@ -132,8 +153,20 @@ export const setToEndOfDay = (date: Date): Date => {
  * @param {Date} date - The date object to be modified.
  * @returns {Date} The modified date object set to the first day of the month with the time set to midnight.
  */
-export const setToFirstDayOfMonth = (date: Date): Date => {
+export const setFirstDayOfMonth = (date: Date): Date => {
   date.setDate(1);
 
-  return setToMidnight(date);
+  return setBeginningOfDay(date);
+};
+
+/**
+ * Sets the given date to the last day of the month and sets the time to midnight (00:00:00.000).
+ *
+ * @param {Date} date - The date object to be modified.
+ * @returns {Date} The modified date object set to the first day of the month with the time set to midnight.
+ */
+export const setLastDayOfMonth = (date: Date): Date => {
+  date.setDate(dayjs(date).daysInMonth());
+
+  return setBeginningOfDay(date);
 };

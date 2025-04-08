@@ -142,6 +142,7 @@ export function mitt<Events extends AnyRecord<Events>>(
      */
     on<Key extends keyof Events>(type: Key, handler: GenericEventHandler) {
       const handlers: GenericEventHandler[] | undefined = instance.get(type);
+
       if (handlers) {
         handlers.push(handler);
       } else {

@@ -2,7 +2,7 @@ interface RequestAnimationHandlerArgs {
   animateFn: (percentage: number) => void;
   duration: number;
   onFinish: () => void;
-  registerRequestAnimationFn: (
+  registerRequestAnimationFn?: (
     args: ReturnType<typeof window.requestAnimationFrame>
   ) => void;
 }
@@ -59,12 +59,18 @@ export const requestAnimationHandler = (args: RequestAnimationHandlerArgs) => {
     // Stop the animation after the elapsed time reaches the duration
     if (elapsed < duration) {
       previousTimestamp = timestamp;
-      registerRequestAnimationFn(window.requestAnimationFrame(doAnimate));
+
+      if (registerRequestAnimationFn) {
+        registerRequestAnimationFn(window.requestAnimationFrame(doAnimate));
+      } else window.requestAnimationFrame(doAnimate);
+
       return;
     }
 
     onFinish();
   };
 
-  registerRequestAnimationFn(window.requestAnimationFrame(doAnimate));
+  if (registerRequestAnimationFn) {
+    registerRequestAnimationFn(window.requestAnimationFrame(doAnimate));
+  } else window.requestAnimationFrame(doAnimate);
 };

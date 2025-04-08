@@ -129,7 +129,7 @@ export default [
       '.tmp_staging/etc/*',
       '.tmp_staging/dist/*',
       '.tmp_staging/node_modules/*',
-      '.tmp_staging/jest.config.cjs',
+      '.tmp_staging/jest.config.js',
       '.tmp_staging/coverage/*',
       '.tmp_staging/rollup.config.cjs',
       ...ignoredGeneratedFile

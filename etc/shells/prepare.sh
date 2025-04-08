@@ -20,4 +20,4 @@ EOF
   fi
 done
 
-echo "✅ Copy complete!"
+echo "✅  Copy complete!"

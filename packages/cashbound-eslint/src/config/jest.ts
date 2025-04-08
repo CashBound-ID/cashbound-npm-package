@@ -13,6 +13,13 @@ const eslintJestConfig = (path = '**/__tests__'): Linter.Config[] => {
       rules: {
         ...eslintPluginJest.configs['flat/recommended'].rules,
         ...eslintPluginJest.configs['flat/style'].rules,
+        'jest/expect-expect': [
+          'error',
+          {
+            additionalTestBlockFunctions: [],
+            assertFunctionNames: ['expect', 'JestBuilder.test']
+          }
+        ],
         'jest/no-mocks-import': 'off'
       }
     }

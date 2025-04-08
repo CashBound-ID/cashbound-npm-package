@@ -13,6 +13,7 @@ type CXArgs =
  */
 export const cx = (...args: Array<CXArgs>): string => {
   let cls = '';
+
   for (let i = 0; i < args.length; i++) {
     const arg = args[i];
 
@@ -34,6 +35,7 @@ export const cx = (...args: Array<CXArgs>): string => {
         }
         break;
       }
+
       default: {
         toAdd = arg;
       }
@@ -72,7 +74,7 @@ export const numberToPx = (arg: number) => {
  * @returns The parsed number, or 0 if the input is not a valid pixel string.
  */
 export const pxToNumber = (arg: string) => {
-  if (arg.includes('px')) {
+  if (typeof arg === 'string' && arg.includes('px')) {
     const result = Number(arg.replace('px', ''));
 
     if (!Number.isNaN(result)) return result;

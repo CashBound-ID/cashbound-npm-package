@@ -1,4 +1,4 @@
-import { castingError, TimeoutError } from '@/error';
+import { castingError } from '@/error';
 import { combineAbortSignal, createAbortSignal } from '@/process';
 
 interface FetchAPIResponseType<T> {
@@ -41,7 +41,7 @@ export const fetchAPI = async <T>(
     signals = [],
     url,
     ...res
-  } = args || {};
+  } = args;
 
   try {
     const instance = await fetch(url.toString(), {
@@ -51,7 +51,7 @@ export const fetchAPI = async <T>(
     const result = await instance.json();
 
     if (result !== null && typeof result !== 'undefined') {
-      if (!instance.ok && (instance.status >= 400 || instance.status === 404)) {
+      if (!instance.ok && instance.status >= 400) {
         return {
           error: new Error(`API Error`),
           requestBody: res,
@@ -64,11 +64,6 @@ export const fetchAPI = async <T>(
 
     throw new Error(defaultErrorMessage);
   } catch (e) {
-    if (e instanceof TimeoutError) {
-      const timeoutEvent = new CustomEvent('TimeoutError');
-      window.dispatchEvent(timeoutEvent);
-    }
-
     if (e instanceof Error) return { error: e };
 
     return { error: castingError(e) };

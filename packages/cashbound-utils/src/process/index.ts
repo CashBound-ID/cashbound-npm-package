@@ -66,10 +66,12 @@ export const createAbortSignal = (args: CreateAbortSignalArgs): AbortSignal => {
   const { defaultErrorMessage = 'Time Out Async Proces', delay = 5000 } = args;
 
   const controller = new AbortController();
-  setTimeout(
-    () => controller.abort(new TimeoutError(defaultErrorMessage)),
-    delay
-  );
+  setTimeout(() => {
+    const timeoutEvent = new CustomEvent('TimeoutError');
+    window.dispatchEvent(timeoutEvent);
+    controller.abort(new TimeoutError(defaultErrorMessage));
+  }, delay);
+
   return controller.signal;
 };
 
@@ -86,32 +88,37 @@ export const combineAbortSignal = (signals: AbortSignal[]) => {
     throw new CashboundError('The argument must be an array of AbortSignals.');
   }
 
+  const signalIncorrect = signals.find(
+    (item) => !(item instanceof AbortSignal)
+  );
+  if (signalIncorrect) {
+    throw new TypeError('All elements must be AbortSignal instances.');
+  }
+
   const controller = new AbortController();
+  const eventController = new AbortController();
   const signal = controller.signal;
 
   const abortHandler = () => {
     if (!signal.aborted) {
       controller.abort();
-
-      // Remove event listeners from all signals
-      signals.forEach((s) => {
-        s.removeEventListener('abort', abortHandler);
-      });
+      eventController.abort();
     }
   };
 
+  let isAbort = false;
   for (const s of signals) {
-    if (!(s instanceof AbortSignal)) {
-      throw new TypeError('All elements must be AbortSignal instances.');
+    if (isAbort) return;
+
+    s.addEventListener('abort', abortHandler, eventController);
+
+    // Check if any signal is already aborted
+    if (s.aborted) {
+      isAbort = true;
+      controller.abort();
+      eventController.abort();
     }
-
-    s.addEventListener('abort', abortHandler);
   }
-
-  // Check if any signal is already aborted
-  signals.forEach((s) => {
-    if (s.aborted) controller.abort();
-  });
 
   return signal;
 };

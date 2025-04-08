@@ -49,7 +49,6 @@ export default eslintConfig([
       'jest.config.js',
       'coverage/*',
       'rollup.config.cjs',
-      'jest.config.cjs',
       ...ignoredGeneratedFile
     ]
   }

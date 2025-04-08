@@ -14,12 +14,18 @@
  */
 
 export const formattingPhoneNumber = (phoneNumber: string): string => {
-  const lastGroupLength = phoneNumber.replace(/\D/g, '').length - 9;
-  const cleaned = phoneNumber.replace(/\D/g, '');
+  let formattedPhoneNumber = phoneNumber.replace(/\D/g, '');
+  if (formattedPhoneNumber.startsWith('0')) {
+    formattedPhoneNumber = `62${formattedPhoneNumber.slice(1)}`;
+  } else if (!formattedPhoneNumber.startsWith('62')) {
+    formattedPhoneNumber = `62${formattedPhoneNumber}`;
+  }
+
+  const lastGroupLength = formattedPhoneNumber.replace(/\D/g, '').length - 9;
   const patternString = `^(\\d{2})(\\d{3})(\\d{4})(\\d{${lastGroupLength}})$`;
   const phonePattern = new RegExp(patternString);
 
-  return cleaned.replace(phonePattern, '+$1 $2 $3 $4');
+  return formattedPhoneNumber.replace(phonePattern, '+$1 $2 $3 $4');
 };
 
 /**

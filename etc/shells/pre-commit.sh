@@ -96,7 +96,7 @@ while IFS= read -r PACKAGE; do
       exit 1
     else
       # Print a success message if ESLint passes with no errors or warnings
-      echo "✅ Linter success package $PACKAGE_NAME."
+      echo "✅  Linter success package $PACKAGE_NAME."
     fi
   fi
 
